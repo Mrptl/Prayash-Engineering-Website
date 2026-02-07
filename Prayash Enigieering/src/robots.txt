@@ -1,0 +1,15 @@
+# Robots.txt for Prayash Engineering
+# https://www.prayashengineering.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.prayashengineering.com/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 10
+
+# Disallow admin or private directories (if any in future)
+# Disallow: /admin/
+# Disallow: /private/

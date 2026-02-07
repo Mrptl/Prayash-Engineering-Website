@@ -1,0 +1,124 @@
+Recommended Website Structure
+Home
+About Us
+Services
+ ├─ Heavy Lifting Equipment Solutions
+ ├─ EOT & Gantry Crane Spares & Services
+ ├─ Hydraulic Hose Pipes & Fittings
+ ├─ Precision Engineering & Machining
+ ├─ Reverse Engineering & Imported Parts Development
+Projects
+Industries Served
+Why Choose Us
+Clients
+Contact Us
+
+5.1 HOME PAGE CONTENT
+Hero Headline
+Smart Innovation. Smart Solutions for Industrial Engineering.
+Subheading
+Delivering reliable, precision-driven engineering solutions for material handling, heavy lifting, hydraulic systems, and industrial fabrication.
+Intro Paragraph
+Prayash Engineering is a trusted engineering solutions provider specializing in heavy lifting equipment, EOT & gantry crane services, hydraulic hose assemblies, industrial pipelines, and precision engineering. Backed by strong technical expertise, certified quality systems, and hands-on industry experience, we deliver end-to-end industrial solutions tailored to demanding operational environments.
+Key Highlights (Bullet Section)
+ISO 9001:2015 Certified Company
+18+ Years of Industry Experience
+One-Stop Engineering Solution Provider
+Custom Design, Manufacturing & Maintenance
+Serving Power, Pharma, Infrastructure & Manufacturing Sectors
+Call to Action
+👉 Request a Quote | Talk to Our Engineering Expert
+
+5.2 ABOUT US PAGE
+Heading
+Engineering Excellence Built on Experience & Innovation
+Content
+Founded in 2021, Prayash Engineering is a dynamic engineering services and manufacturing company based in Halol, Gujarat. Led by Mr. Nilesh Patel, who brings over 18 years of multidisciplinary engineering experience, the company has rapidly grown into a reliable partner for complex industrial requirements.
+We specialize in mechanical fabrication, material handling equipment, industrial pipelines, hydraulic systems, and precision-machined components. Our approach combines technical knowledge, quality assurance, and a strong commitment to customer satisfaction.
+Certified under ISO 9001:2015, Prayash Engineering ensures consistent quality, safety, and performance across every project — from concept design to final commissioning.
+Vision
+To become a preferred engineering solutions, partner by delivering innovative, reliable, and cost-effective industrial systems.
+Mission
+To provide customized, high-quality engineering solutions that enhance operational efficiency and long-term value for our clients.
+
+5.3 SERVICES PAGE (OVERVIEW)
+Heading
+Our Engineering Services & Capabilities
+Intro
+Prayash Engineering offers a comprehensive range of industrial engineering services designed to support manufacturing, infrastructure, power, and process industries.
+
+Service 1: Heavy Lifting Equipment Solutions
+Description:
+Design and manufacturing of heavy lifting equipment including EOT cranes, windmill tower hooks, spreader beams, and customized lifting tools engineered for high load capacity and operational safety.
+Keywords:
+Heavy lifting equipment manufacturer, EOT crane manufacturer, custom lifting tools India
+
+Service 2: EOT & Gantry Crane Spares and Services
+Description:
+Complete support for EOT and gantry cranes including spares supply, preventive maintenance, breakdown services, safety inspections, and load capacity enhancement.
+Keywords:
+EOT crane service provider, crane spares supplier, gantry crane maintenance
+
+Service 3: Hydraulic Hose Pipes & Fittings
+Description:
+Manufacturing and supply of hydraulic hose assemblies and fittings with pressure-rated components ensuring leak-free performance and safety compliance.
+Keywords:
+Hydraulic hose assembly, hydraulic fittings supplier, industrial hydraulic solutions
+
+Service 4: Precision Engineering & Machining
+Description:
+High-precision machining, CNC operations, welding, alignment, and quality inspections using advanced measuring instruments to achieve tight tolerances.
+Keywords:
+Precision machining services, CNC machining Gujarat, industrial fabrication
+
+Service 5: Reverse Engineering & Imported Parts Development
+Description:
+Development of rare, obsolete, or imported machinery parts through reverse engineering, material enhancement, and customized manufacturing.
+Keywords:
+Reverse engineering services, import substitution engineering, custom machine parts
+
+5.4 PROJECTS PAGE
+Heading
+From Blueprint to Execution – Our Engineering Projects
+Content
+Our projects reflect our capability to convert complex engineering concepts into robust, reliable industrial solutions. From CAD modelling and 3D simulations to manufacturing and site installation, we manage the complete project lifecycle.
+(Project images, brief descriptions, industry sector, and application to be displayed here.)
+
+5.5 INDUSTRIES SERVED PAGE
+Power & Renewable Energy
+Pharma & Chemical
+Infrastructure & Construction
+Manufacturing & Automation
+Material Handling & Logistics
+
+5.6 WHY CHOOSE US PAGE
+Key Points
+Experienced engineering leadership
+Skilled technical workforce
+Custom-built solutions, not standard products
+Strong quality assurance & inspection process
+Quick response & reliable after-sales support
+
+5.7 CLIENTS PAGE
+Display client logos such as:
+TBEA
+Windar
+Raychem RPG
+Supreme
+Lisega
+Kirby
+(As per company profile)
+
+5.8 CONTACT US PAGE
+Prayash Engineering
+302, Narayan Nagar, Opp. Velvet Cinema,
+Halol GIDC Road, Halol – 389350, Gujarat, India
+📞 +91 84017 59383
+📞 +91 96240 67712
+📧 info@prayashengineering.com
+🌐 www.prayashengineering.com
+
+4. SEO & Meta Data Guidelines
+Developer must implement these tags on the respective pages.
+
+

@@ -1,0 +1,1265 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    /* Color Palette */
+    --primary: #0072BC;
+    /* Deep Industrial Blue */
+    --primary-dark: #004d80;
+    --secondary: #2B3A42;
+    /* Dark Slate */
+    --accent: #F4A261;
+    /* Muted Orange for highlights */
+    --light-bg: #F8F9FA;
+    --border: #E5E7EB;
+    --text-main: #1F2937;
+    --text-muted: #6B7280;
+    --white: #ffffff;
+
+    /* Spacing & Layout */
+    --container-width: 1280px;
+    --header-height: 85px;
+    --section-spacing: 80px;
+    --radius: 4px;
+    /* Sharper corners for industrial look */
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* --- Resets & Base Styles --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-main);
+    line-height: 1.6;
+    background-color: var(--white);
+    -webkit-font-smoothing: antialiased;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* --- Scroll Animations --- */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.reveal-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.2s ease;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* --- Typography --- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--secondary);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2.25rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+p {
+    margin-bottom: 1rem;
+    color: var(--text-muted);
+}
+
+/* --- Layout Utilities --- */
+.container {
+    width: 90%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.grid {
+    display: grid;
+    gap: 2rem;
+}
+
+.grid-2 {
+    grid-template-columns: 1fr 1fr;
+}
+
+.grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 1024px) {
+    .container {
+        width: 95%;
+    }
+
+    .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+
+    .grid-2,
+    .grid-3 {
+        grid-template-columns: 1fr;
+    }
+
+    /* grid-4 already becomes 2 cols at 1024px, now 1 col at 768px if needed, 
+       but for stats logic (stat-item), we might want 2x2 on mobile too. 
+       Let's keep specific overrides where needed. */
+    .grid-4 {
+        grid-template-columns: 1fr;
+    }
+
+    h1 {
+        font-size: 2.25rem;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+    }
+
+    .section-header h2::after {
+        width: 40px;
+    }
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mb-1 {
+    margin-bottom: 1rem;
+}
+
+.mb-2 {
+    margin-bottom: 2rem;
+}
+
+.mb-4 {
+    margin-bottom: 4rem;
+}
+
+/* --- Components --- */
+
+/* Icon Utilities */
+.lucide {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    display: inline-block;
+    stroke-width: 2px;
+}
+
+.icon-sm {
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+}
+
+.icon-success {
+    color: #10b981;
+    margin-right: 8px;
+}
+
+.mobile-call-btn .lucide {
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+}
+
+.nav-item .lucide {
+    width: 14px;
+    height: 14px;
+    margin-left: 2px;
+}
+
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 14px 32px;
+    font-weight: 600;
+    border-radius: var(--radius);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: var(--white);
+    border: 2px solid var(--primary);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--white);
+    border: 2px solid var(--white);
+}
+
+.btn-secondary:hover {
+    background-color: var(--white);
+    color: var(--primary);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+}
+
+.btn-outline:hover {
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+/* Section Common */
+section {
+    padding: var(--section-spacing) 0;
+}
+
+.section-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 3rem auto;
+}
+
+.section-header h2 {
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--primary);
+}
+
+/* --- Header & Nav --- */
+.top-bar {
+    background-color: var(--secondary);
+    color: #cbd5e1;
+    font-size: 0.875rem;
+    padding: 10px 0;
+}
+
+.top-bar .container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header {
+    background: var(--white);
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+}
+
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.hamburger {
+    display: none;
+}
+
+.nav-overlay {
+    display: none;
+}
+
+.logo {
+    height: 55px;
+    /* Adjust based on actual logo ratio */
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+}
+
+.nav-menu a {
+    margin-left: 2rem;
+    font-weight: 500;
+    color: var(--secondary);
+    position: relative;
+    padding: 5px 0;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+    color: var(--primary);
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary);
+    transition: width 0.3s;
+}
+
+.nav-menu a:hover::after,
+.nav-menu a.active::after {
+    width: 100%;
+}
+
+/* Mobile Menu Button - Removed */
+
+/* --- Hero Section --- */
+.hero {
+    background: linear-gradient(rgba(10, 25, 47, 0.85), rgba(10, 25, 47, 0.7)),
+        url('../assets/hero-industrial.jpg') center/cover no-repeat;
+    color: var(--white);
+    padding: 140px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ... (rest of CSS) ... */
+
+/* Hero Content Base Styles */
+.hero-content h1 {
+    color: var(--white);
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    max-width: 800px;
+}
+
+.hero-content span {
+    color: #4CC9F0;
+    /* Brighter accent for dark bg */
+}
+
+.hero-content p {
+    color: #e2e8f0;
+    font-size: 1.25rem;
+    max-width: 600px;
+    margin-bottom: 2rem;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+/* --- Stats Bar --- */
+.stats-bar {
+    background-color: var(--primary);
+    color: var(--white);
+    padding: 40px 0;
+    margin-top: -40px;
+    position: relative;
+    z-index: 10;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    text-align: center;
+}
+
+.stat-item {
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.stat-item:last-child {
+    border-right: none;
+}
+
+.stat-item h3 {
+    color: var(--white);
+    font-size: 2.2rem;
+    margin-bottom: 5px;
+}
+
+.stat-item p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
+    margin: 0;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+/* --- Services / Products / Why --- */
+.card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2.5rem;
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary);
+}
+
+.card h3 {
+    margin-top: 1rem;
+    font-size: 1.35rem;
+}
+
+.icon-box {
+    width: 64px;
+    height: 64px;
+    background-color: rgba(0, 114, 188, 0.1);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
+    font-size: 1.75rem;
+}
+
+/* --- CTA Section --- */
+.cta-section {
+    background: var(--secondary);
+    color: var(--white);
+    text-align: center;
+    padding: 80px 0;
+}
+
+.cta-section h2 {
+    color: var(--white);
+}
+
+.cta-section p {
+    color: #cbd5e1;
+    max-width: 600px;
+    margin: 0 auto 2.5rem auto;
+    font-size: 1.1rem;
+}
+
+/* --- Forms --- */
+form input,
+form textarea,
+form select {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #d1d5db;
+    border-radius: var(--radius);
+    margin-bottom: 1.5rem;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+    background: #f9fafb;
+}
+
+form input:focus,
+form textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(0, 114, 188, 0.1);
+}
+
+form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--secondary);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+/* --- Footer --- */
+.footer {
+    background-color: #111827;
+    color: #9ca3af;
+    padding: 80px 0 30px 0;
+    font-size: 0.95rem;
+}
+
+.footer-grid {
+    display: grid;
+    /* 5 items: Info, Links, Services, Contact, Form */
+    /* On large screens: 3 cols top, 2 cols bottom OR standard 5 cols if space permits. 
+       The original design had 4 cols ratio, implicitly wrapping the 5th. 
+       Let's try a dense Auto-fit or explicit template. 
+       Given the content, a 3-column layout might be best for tablet/desktop transition, 
+       and full flex for widest. */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 50px;
+    align-items: start;
+}
+
+.footer h4 {
+    color: var(--white);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* .footer-logo removed as it was text-only style */
+.footer-logo-img {
+    height: 60px;
+    /* Slightly larger for footer visibility */
+    display: inline-block;
+    margin-bottom: 1.25rem;
+    filter: brightness(0) invert(1);
+    /* Makes the logo white for dark footer background */
+    opacity: 0.9;
+}
+
+.footer-links li {
+    margin-bottom: 0.85rem;
+}
+
+.footer-links a:hover {
+    color: var(--primary);
+    text-decoration: underline;
+}
+
+.copy {
+    border-top: 1px solid #374151;
+    padding-top: 30px;
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+/* --- Floating Widgets --- */
+.floating-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.floating-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.floating-btn:hover {
+    transform: scale(1.1);
+}
+
+.whatsapp-btn {
+    background-color: #25D366;
+    overflow: hidden;
+}
+
+.whatsapp-btn img {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+}
+
+.scroll-top-btn {
+    background-color: var(--secondary);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+}
+
+.scroll-top-btn.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.scroll-top-btn img {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1);
+}
+
+/* --- Responsive Helpers --- */
+@media (max-width: 1024px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+
+    .stat-item {
+        border-right: none;
+        /* Add bottom border for top 2 items? 
+           Better to just remove borders and rely on spacing/bg or keep it clean. */
+        padding: 20px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .stat-item:nth-last-child(-n+2) {
+        border-bottom: none;
+    }
+
+    /* Footer adjustments for tablet */
+    .footer-grid {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .top-bar .container {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+        font-size: 0.8rem;
+    }
+
+    .header {
+        height: auto;
+        padding: 10px 0;
+    }
+
+    .header-flex {
+        justify-content: space-between;
+        padding: 5px 15px;
+    }
+
+    .logo {
+        height: 50px;
+        margin-bottom: 5px;
+    }
+
+    /* Hamburger Menu Logic */
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 21px;
+        cursor: pointer;
+        z-index: 2001;
+        margin-left: auto;
+        /* Push to right if needed, or flex handles it */
+    }
+
+    .hamburger span {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background-color: var(--secondary);
+        border-radius: 3px;
+        transition: all 0.3s ease;
+    }
+
+    /* Hamburger Animation to X */
+    .hamburger.active span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+
+    /* Sliding Nav Menu */
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        /* Hidden by default */
+        width: 250px;
+        /* Drawer width */
+        height: 100vh;
+        background: var(--white);
+        flex-direction: column;
+        align-items: flex-start;
+        /* Align text left */
+        justify-content: flex-start;
+        padding: 80px 20px 20px 20px;
+        /* Top padding for X button area */
+        z-index: 2000;
+        transition: right 0.3s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        margin-top: 0;
+        /* Reset */
+    }
+
+    .nav-menu.active {
+        right: 0;
+        /* Slide in */
+    }
+
+    .nav-menu a,
+    .nav-item>a {
+        width: 100%;
+        text-align: left;
+        margin: 0;
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        background: transparent;
+        /* Reset from previous step */
+        border-radius: 0;
+    }
+
+    .nav-item {
+        width: 100%;
+        text-align: left;
+    }
+
+    .nav-item .dropdown-arrow {
+        float: right;
+        transform: rotate(0deg);
+    }
+
+    .nav-item:hover .dropdown-arrow {
+        transform: rotate(180deg);
+    }
+
+    /* Overlay */
+    .nav-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1999;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+
+    .nav-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* Ensure dropdowns work or are expanded on mobile if needed, 
+       but for now, we just ensure the parent link is clickable. */
+    .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        border: none;
+        background: transparent;
+        padding: 0;
+        display: block;
+        /* Always show on mobile so users can see sub-links */
+        margin-left: 20px;
+        /* Indent sub-items */
+        border-left: 2px solid rgba(0, 0, 0, 0.1);
+        /* Visual guide */
+    }
+
+    .nav-item:hover .dropdown-menu {
+        display: block;
+    }
+
+    .dropdown-menu a {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+        padding-left: 20px;
+        background: transparent;
+        color: var(--text-muted);
+    }
+
+    .hero {
+        padding: 80px 0;
+        text-align: center;
+    }
+
+    .hero-content h1 {
+        font-size: 2.25rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* Keep 2x2 on mobile */
+        gap: 15px;
+    }
+
+    .stat-item h3 {
+        font-size: 1.75rem;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .footer-inquiry-form {
+        margin-top: 20px;
+        text-align: left;
+        /* Keep form inputs aligned naturally */
+    }
+
+    .footer-inquiry-form h4 {
+        text-align: center;
+    }
+}
+
+/* --- Dropdown Navigation --- */
+.nav-item {
+    position: relative;
+    display: inline-block;
+}
+
+.nav-item>a {
+    margin-left: 2rem;
+    font-weight: 500;
+    color: var(--secondary);
+    position: relative;
+    padding: 5px 0;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.nav-item>a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary);
+    transition: width 0.3s;
+}
+
+.nav-item>a:hover::after,
+.nav-item>a.active::after {
+    width: 100%;
+}
+
+.dropdown-arrow {
+    font-size: 0.7rem;
+    transition: transform 0.3s;
+}
+
+.nav-item:hover .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--white);
+    min-width: 280px;
+    box-shadow: var(--shadow-lg);
+    border-radius: var(--radius);
+    padding: 0.5rem 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    z-index: 1001;
+    border: 1px solid var(--border);
+}
+
+.nav-item:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 12px 20px;
+    color: var(--text-main);
+    font-size: 0.95rem;
+    margin: 0;
+    transition: all 0.2s;
+}
+
+.dropdown-menu a:hover {
+    background-color: var(--light-bg);
+    color: var(--primary);
+    padding-left: 25px;
+}
+
+.dropdown-menu a::after {
+    display: none;
+}
+
+/* Header CTA Button */
+.header-cta {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.header-cta .btn {
+    padding: 10px 20px;
+    font-size: 0.875rem;
+}
+
+/* --- Sticky Mobile Call Button --- */
+.mobile-call-btn {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--primary);
+    color: var(--white);
+    text-align: center;
+    padding: 14px 20px;
+    font-weight: 600;
+    font-size: 1rem;
+    z-index: 9998;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.mobile-call-btn:hover {
+    background: var(--primary-dark);
+    color: var(--white);
+}
+
+.mobile-call-btn span {
+    margin-right: 8px;
+}
+
+@media (max-width: 768px) {
+    .mobile-call-btn {
+        display: block;
+    }
+
+    .floating-container {
+        bottom: 80px;
+    }
+
+
+
+    .header-cta {
+        display: none;
+    }
+}
+
+/* --- Footer Inquiry Form --- */
+.footer-inquiry-form {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-inquiry-form h4 {
+    margin-bottom: 1rem;
+}
+
+.footer-inquiry-form input,
+.footer-inquiry-form textarea {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--white);
+    padding: 10px 12px;
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+}
+
+.footer-inquiry-form input::placeholder,
+.footer-inquiry-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.footer-inquiry-form input:focus,
+.footer-inquiry-form textarea:focus {
+    border-color: var(--primary);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.footer-inquiry-form .btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 0.9rem;
+}
+
+/* --- FAQ Section --- */
+.faq-section {
+    background: var(--light-bg);
+}
+
+.faq-item {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+.faq-question {
+    padding: 1.25rem 1.5rem;
+    font-weight: 600;
+    color: var(--secondary);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.2s;
+}
+
+.faq-question:hover {
+    background: var(--light-bg);
+}
+
+.faq-question::after {
+    content: '+';
+    font-size: 1.5rem;
+    color: var(--primary);
+    transition: transform 0.3s;
+}
+
+.faq-item.active .faq-question::after {
+    content: '−';
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 500px;
+    padding: 0 1.5rem 1.25rem;
+}
+
+.faq-answer p {
+    margin: 0;
+}
+
+/* --- Breadcrumbs --- */
+.breadcrumbs {
+    padding: 1rem 0;
+    background: var(--light-bg);
+    font-size: 0.9rem;
+}
+
+.breadcrumbs a {
+    color: var(--primary);
+}
+
+.breadcrumbs a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumbs span {
+    color: var(--text-muted);
+    margin: 0 8px;
+}
+
+/* --- Related Services --- */
+.related-services {
+    background: var(--light-bg);
+    padding: 60px 0;
+}
+
+.related-services .card {
+    text-align: center;
+}
+
+.related-services .card:hover {
+    border-color: var(--primary);
+}
+
+/* --- Gallery Section --- */
+.gallery-section {
+    background-color: var(--white);
+    padding: var(--section-spacing) 0;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    aspect-ratio: 4 / 3;
+    cursor: pointer;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 114, 188, 0.2);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover::after {
+    opacity: 1;
+}
+
+@media (max-width: 992px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- Brand Grid (Client Showcase) --- */
+.brand-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.brand-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: all 0.3s ease;
+    min-height: 120px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.brand-card span {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--secondary);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.brand-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 114, 188, 0.1);
+}
+
+.brand-card:hover span {
+    color: var(--primary);
+}
+
+@media (max-width: 992px) {
+    .brand-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .brand-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .brand-grid {
+        grid-template-columns: 1fr;
+    }
+}
